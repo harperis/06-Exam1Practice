@@ -2,8 +2,8 @@
 PRACTICE Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Isaac Harper.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -37,7 +37,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # ------------------------------------------------------------------
@@ -105,6 +105,24 @@ def run_test_problem3a():
 
 
 def problem3a(window, point, n):
+    t = 0
+    x = point.x
+    y = point.y
+    for k in range(n):
+        point_1 = rg.Point(x, y)
+        point_2 = rg. Point(x, y + 50)
+        line = rg.Line(point_1, point_2)
+        x = x + 20
+        y = y + 10
+        thickness = 2 * k + 1
+        line.thickness = thickness
+        if line.thickness > 13:
+            line.thickness = 13
+        t = t + thickness
+        line.attach_to(window)
+
+        window.render()
+    return t
     """
     See   problem3a_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -164,7 +182,7 @@ def run_test_problem3b():
     print('       actual:  ', answer)
 
 
-def problem3b(m, point1):
+#def problem3b(m, point1):
     """
     See   problem3b_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
